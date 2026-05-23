@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #050505;
+  --color-fg: #efe7da;
+  --color-gold: #c6a56a;
+  --color-gold-soft: #d8bb82;
+  --color-red: #6a0f13;
+  --color-charcoal: #1a1a1a;
+  --gutter: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: rgba(198, 165, 106, 0.35);
+  color: #fff;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Custom cursor — hide default on desktop only */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+@layer components {
+  .container-royal {
+    width: 100%;
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans), "Inter", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 400;
+  }
+
+  .display-xl {
+    font-family: var(--font-display), "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    font-size: clamp(3.5rem, 10vw, 10rem);
+  }
+
+  .display-lg {
+    font-family: var(--font-display), "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  .display-md {
+    font-family: var(--font-display), "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 1.02;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .editorial-headline {
+    font-family: var(--font-editorial), "Bodoni Moda", serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .body-luxe {
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(239, 231, 218, 0.78);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    max-width: 52ch;
+  }
+
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(198, 165, 106, 0.7) 50%,
+      transparent 100%
+    );
+  }
+
+  .gold-rule-solid {
+    height: 1px;
+    background: rgba(198, 165, 106, 0.55);
+  }
+
+  .glass-panel {
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    border: 1px solid rgba(198, 165, 106, 0.18);
+  }
+
+  .btn-royal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 2.25rem;
+    border: 1px solid rgba(198, 165, 106, 0.65);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.72rem;
+    background: transparent;
+    transition: all 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-royal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(198, 165, 106, 0.12);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-royal:hover {
+    color: #fff;
+    border-color: rgba(216, 187, 130, 1);
+  }
+
+  .btn-royal:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-royal > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .underline-gold {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-gold::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--color-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .underline-gold:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .text-stroke-gold {
+    -webkit-text-stroke: 1px rgba(198, 165, 106, 0.6);
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+    opacity: 0.06;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+    animation: grain-shift 8s steps(6) infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 60%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .mask-fade-t {
+    -webkit-mask-image: linear-gradient(
+      to top,
+      black 60%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(to top, black 60%, transparent 100%);
+  }
+}
+
+/* Cinematic Ken Burns for background images */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.06) translate(-1%, -0.5%);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 22s ease-out forwards;
+}
+
+/* Vertical writing for side labels */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
