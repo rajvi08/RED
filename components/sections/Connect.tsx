@@ -82,12 +82,10 @@ export default function Connect() {
           <div className="md:col-span-7">
             <RevealFade delay={0.2}>
               <form
-                action="https://formsubmit.co/pranav@redeveloper.co"
+                action="https://formspree.io/f/mzdwaevr"
                 method="POST"
                 className="glass-panel relative p-8 md:p-14"
               >
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://redeveloper.co" />
                 <input
                   type="hidden"
                   name="_subject"
@@ -95,8 +93,8 @@ export default function Connect() {
                 />
                 <input
                   type="hidden"
-                  name="_template"
-                  value="table"
+                  name="_next"
+                  value="https://redeveloper.co"
                 />
 
                 <span className="absolute top-0 left-0 h-6 w-6 border-t border-l border-gold/60" />
