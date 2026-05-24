@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { RevealFade, RevealText } from "@/components/ui/RevealText";
@@ -13,8 +12,6 @@ export default function Connect() {
     offset: ["start end", "end start"],
   });
   const mapY = useTransform(scrollYProgress, [0, 1], ["-8%", "12%"]);
-
-  const [sent, setSent] = useState(false);
 
   return (
     <section
@@ -85,35 +82,23 @@ export default function Connect() {
           <div className="md:col-span-7">
             <RevealFade delay={0.2}>
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  const data = new FormData(form);
-                  const name = String(data.get("name") ?? "").trim();
-                  const email = String(data.get("email") ?? "").trim();
-                  const city = String(data.get("city") ?? "").trim();
-                  const message = String(data.get("message") ?? "").trim();
-
-                  const subject = name
-                    ? `Private Letter from ${name}`
-                    : "Private Letter via RED";
-                  const body = [
-                    `Name: ${name}`,
-                    `Email: ${email}`,
-                    `City of Interest: ${city}`,
-                    "",
-                    "Letter:",
-                    message,
-                  ].join("\r\n");
-
-                  const mailto = `mailto:pranav@redeveloper.co?subject=${encodeURIComponent(
-                    subject,
-                  )}&body=${encodeURIComponent(body)}`;
-                  window.location.href = mailto;
-                  setSent(true);
-                }}
+                action="https://formsubmit.co/pranav@redeveloper.co"
+                method="POST"
                 className="glass-panel relative p-8 md:p-14"
               >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://redeveloper.co" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="A Private Letter via RED"
+                />
+                <input
+                  type="hidden"
+                  name="_template"
+                  value="table"
+                />
+
                 <span className="absolute top-0 left-0 h-6 w-6 border-t border-l border-gold/60" />
                 <span className="absolute top-0 right-0 h-6 w-6 border-t border-r border-gold/60" />
                 <span className="absolute bottom-0 left-0 h-6 w-6 border-b border-l border-gold/60" />
@@ -126,7 +111,12 @@ export default function Connect() {
 
                 <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
                   <Field label="Name" name="name" type="text" required />
-                  <Field label="Discretion" name="email" type="email" required />
+                  <Field
+                    label="Discretion"
+                    name="discretion"
+                    type="email"
+                    required
+                  />
                   <Field
                     label="City of Interest"
                     name="city"
@@ -135,7 +125,7 @@ export default function Connect() {
                   />
                   <Field
                     label="Your Letter"
-                    name="message"
+                    name="letter"
                     textarea
                     className="md:col-span-2"
                   />
@@ -145,13 +135,8 @@ export default function Connect() {
                   <p className="text-[0.65rem] tracking-[0.4em] text-silver/40">
                     REPLIES WITHIN 72 HOURS · BY APPOINTMENT
                   </p>
-                  <button
-                    type="submit"
-                    className="btn-royal"
-                    data-cursor="hover"
-                    disabled={sent}
-                  >
-                    <span>{sent ? "Letter Received" : "Send Letter"}</span>
+                  <button type="submit" className="btn-royal" data-cursor="hover">
+                    <span>Send Letter</span>
                     <span className="h-px w-8 bg-gold/70" />
                   </button>
                 </div>
