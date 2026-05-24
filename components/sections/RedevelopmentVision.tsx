@@ -46,7 +46,7 @@ export default function RedevelopmentVision() {
             <RevealFade>
               <div className="flex items-center gap-4">
                 <span className="h-px w-12 bg-gold/60" />
-                <span className="eyebrow">Chapter III — Redevelopment</span>
+                <span className="eyebrow">Chapter III — Development</span>
               </div>
             </RevealFade>
             <RevealFade delay={0.15} className="mt-8">
@@ -105,7 +105,7 @@ export default function RedevelopmentVision() {
         <div className="mt-20 flex justify-center">
           <RevealFade>
             <a href="/redevelopment" className="btn-royal" data-cursor="hover">
-              <span>Our Redevelopment Vision</span>
+              <span>Our Development Vision</span>
               <span className="h-px w-8 bg-gold/70" />
             </a>
           </RevealFade>

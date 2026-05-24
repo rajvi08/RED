@@ -8,12 +8,16 @@ import Logo from "@/components/ui/Logo";
 const MENU = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects/pasaydan-udhyam" },
-  { label: "Redevelopment", href: "/redevelopment" },
+  { label: "Development", href: "/redevelopment" },
   { label: "Connect", href: "/connect" },
 ];
 
 const SOCIAL = [
-  { label: "LinkedIn", href: "https://linkedin.com", handle: "/red-developments" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/ranjit-estates-developers/",
+    handle: "/ranjit-estates-developers",
+  },
 ];
 
 export default function Navigation() {

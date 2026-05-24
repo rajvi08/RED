@@ -30,7 +30,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RED — Building Legacies",
+  title: "RED",
   description:
     "RED is a luxury real estate development house crafting architectural legacies — quiet, considered, and timeless.",
   metadataBase: new URL("https://red.example.com"),
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     apple: "/RED_logo.png",
   },
   openGraph: {
-    title: "RED — Building Legacies",
+    title: "RED",
     description:
       "A luxury real estate development house crafting architectural legacies.",
     type: "website",

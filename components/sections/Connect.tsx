@@ -87,6 +87,29 @@ export default function Connect() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
+                  const form = e.currentTarget;
+                  const data = new FormData(form);
+                  const name = String(data.get("name") ?? "").trim();
+                  const email = String(data.get("email") ?? "").trim();
+                  const city = String(data.get("city") ?? "").trim();
+                  const message = String(data.get("message") ?? "").trim();
+
+                  const subject = name
+                    ? `Private Letter from ${name}`
+                    : "Private Letter via RED";
+                  const body = [
+                    `Name: ${name}`,
+                    `Email: ${email}`,
+                    `City of Interest: ${city}`,
+                    "",
+                    "Letter:",
+                    message,
+                  ].join("\r\n");
+
+                  const mailto = `mailto:pranav@redeveloper.co?subject=${encodeURIComponent(
+                    subject,
+                  )}&body=${encodeURIComponent(body)}`;
+                  window.location.href = mailto;
                   setSent(true);
                 }}
                 className="glass-panel relative p-8 md:p-14"
