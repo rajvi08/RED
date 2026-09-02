@@ -188,7 +188,7 @@ export default function RedevelopmentPage() {
               <RevealFade>
                 <div className="flex items-center gap-4">
                   <span className="h-px w-12 bg-gold/60" />
-                  <span className="eyebrow">A Legacy in Different Form</span>
+                  <span className="eyebrow">A Legacy in a Different Form</span>
                 </div>
               </RevealFade>
               <div className="mt-6 flex flex-col gap-1">
@@ -206,10 +206,18 @@ export default function RedevelopmentPage() {
             </div>
             <div className="md:col-span-5">
               <RevealFade delay={0.2}>
-                <p className="body-luxe text-silver/70">
-                  A glimpse into a series of redevelopments carried, by the
-                  same people gently from old bones to new beginnings.
-                </p>
+                <div className="flex flex-col gap-6">
+                  <p className="body-luxe text-silver/70">
+                    A selection of redevelopment projects undertaken by Sanskruti
+                    Infrastructure and Developers Pvt. Ltd., the earlier practice
+                    established by our founding directors and other partners. The
+                    founders later on created RED.
+                  </p>
+                  <p className="body-luxe text-silver/70">
+                    A glimpse into a series of redevelopments carried, by the
+                    same people gently from old bones to new beginnings.
+                  </p>
+                </div>
               </RevealFade>
             </div>
           </div>
