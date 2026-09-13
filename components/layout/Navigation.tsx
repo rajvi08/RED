@@ -122,7 +122,7 @@ export default function Navigation() {
               }}
             />
 
-            <div className="container-royal relative flex items-center justify-between py-6 md:py-8">
+            <div className="container-royal relative flex shrink-0 items-center justify-between py-6 md:py-8">
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
@@ -140,8 +140,11 @@ export default function Navigation() {
               </span>
             </div>
 
-            <nav className="container-royal relative flex flex-1">
-              <ul className="flex w-full flex-1 flex-col justify-evenly py-4 md:py-8">
+            <nav
+              data-lenis-prevent
+              className="container-royal relative min-h-0 flex-1 overflow-y-auto overscroll-contain"
+            >
+              <ul className="flex min-h-full w-full flex-col justify-evenly py-4 md:py-8">
                 {MENU.map((item, i) => (
                   <li key={item.href} className="border-t border-gold/15 last:border-b">
                     <motion.div
@@ -171,7 +174,7 @@ export default function Navigation() {
               </ul>
             </nav>
 
-            <div className="container-royal relative flex justify-end py-8">
+            <div className="container-royal relative flex shrink-0 justify-end py-8">
               <div className="flex gap-6 text-[0.7rem] tracking-[0.32em] text-silver/60">
                 {SOCIAL.map((s) => (
                   <a

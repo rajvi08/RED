@@ -25,7 +25,7 @@ export default function TechnologyPage() {
         eyebrow="Chapter V · Technology"
         title="Technologies for"
         italic="better living."
-        image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2400&q=85"
+        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=85"
       />
 
       <section className="relative overflow-hidden bg-ink-black py-32 md:py-44">
