@@ -62,7 +62,7 @@ export default function PageHero({
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="display-xl font-display text-[#efe7da]"
+              className="display-xl font-display pb-[0.18em] text-[#efe7da]"
             >
               {title}
             </motion.h1>
@@ -73,7 +73,7 @@ export default function PageHero({
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="display-xl font-display italic text-gold"
+                className="display-xl font-display italic pb-[0.18em] text-gold"
               >
                 {italic}
               </motion.h1>
