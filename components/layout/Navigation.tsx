@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Logo from "@/components/ui/Logo";
@@ -9,6 +10,7 @@ const MENU = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects/pasaydan-udhyam" },
   { label: "Development", href: "/redevelopment" },
+  { label: "Technology", href: "/technology" },
   { label: "Connect", href: "/connect" },
 ];
 
@@ -21,6 +23,8 @@ const SOCIAL = [
 ];
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isTechnology = pathname === "/technology";
   const [menuOpen, setMenuOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -72,12 +76,16 @@ export default function Navigation() {
           </button>
 
           <Link
-            href="/"
-            aria-label="RED — Home"
+            href={isTechnology ? "/technology" : "/"}
+            aria-label={isTechnology ? "RED Tech" : "RED — Home"}
             className="group block justify-self-center transition-opacity duration-700 hover:opacity-90"
             data-cursor="hover"
           >
-            <Logo size="md" priority />
+            <Logo
+              size="md"
+              variant={isTechnology ? "tech" : "red"}
+              priority
+            />
           </Link>
 
           <button
@@ -132,7 +140,7 @@ export default function Navigation() {
               </span>
             </div>
 
-            <nav className="container-royal relative flex flex-1 items-center">
+            <nav className="container-royal relative flex flex-1 items-center overflow-y-auto">
               <ul className="flex w-full flex-col">
                 {MENU.map((item, i) => (
                   <li key={item.href} className="border-t border-gold/15 last:border-b">
@@ -148,7 +156,7 @@ export default function Navigation() {
                       <Link
                         href={item.href}
                         onClick={() => setMenuOpen(false)}
-                        className="group flex items-baseline justify-between gap-8 py-7 md:py-10"
+                        className="group flex items-baseline justify-between gap-8 py-5 md:py-8"
                       >
                         <span className="font-display text-[clamp(2.2rem,8vw,6rem)] font-light leading-none tracking-tight text-[#efe7da] transition-colors duration-700 group-hover:text-gold">
                           {item.label}

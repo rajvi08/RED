@@ -69,12 +69,8 @@ export default function Connect() {
                 lines={["RED · Ranjit Estates & Developers", "Erandwane, Pune"]}
               />
               <Address
-                label="Discretion — Pune"
-                lines={["pranav@redeveloper.co"]}
-              />
-              <Address
-                label="Discretion — New York City"
-                lines={["rajvi@redeveloper.co"]}
+                label="Discretion"
+                lines={["pranav@redeveloper.co", "rajvi@redeveloper.co"]}
               />
             </RevealFade>
           </div>
