@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { RevealFade, RevealText } from "@/components/ui/RevealText";
@@ -148,6 +149,27 @@ export default function Connect() {
             FINER SHADES OF LIFE
           </span>
         </div>
+
+        <nav
+          aria-label="Houses"
+          className="mt-8 flex items-center justify-center gap-8 border-t border-gold/10 pt-8"
+        >
+          <Link
+            href="/"
+            className="underline-gold text-[0.65rem] tracking-[0.5em] text-gold/80 hover:text-gold"
+            data-cursor="hover"
+          >
+            RED
+          </Link>
+          <span className="h-px w-4 bg-gold/30" />
+          <Link
+            href="/technology"
+            className="underline-gold text-[0.65rem] tracking-[0.5em] text-silver/55 hover:text-gold"
+            data-cursor="hover"
+          >
+            RED TECH
+          </Link>
+        </nav>
       </div>
     </section>
   );

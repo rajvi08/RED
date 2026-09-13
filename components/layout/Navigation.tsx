@@ -76,8 +76,8 @@ export default function Navigation() {
           </button>
 
           <Link
-            href={isTechnology ? "/technology" : "/"}
-            aria-label={isTechnology ? "RED Tech" : "RED — Home"}
+            href="/"
+            aria-label="RED — Home"
             className="group block justify-self-center transition-opacity duration-700 hover:opacity-90"
             data-cursor="hover"
           >
@@ -140,8 +140,8 @@ export default function Navigation() {
               </span>
             </div>
 
-            <nav className="container-royal relative flex flex-1 items-center overflow-y-auto">
-              <ul className="flex w-full flex-col">
+            <nav className="container-royal relative flex flex-1">
+              <ul className="flex w-full flex-1 flex-col justify-evenly py-4 md:py-8">
                 {MENU.map((item, i) => (
                   <li key={item.href} className="border-t border-gold/15 last:border-b">
                     <motion.div
@@ -156,9 +156,9 @@ export default function Navigation() {
                       <Link
                         href={item.href}
                         onClick={() => setMenuOpen(false)}
-                        className="group flex items-baseline justify-between gap-8 py-5 md:py-8"
+                        className="group flex items-baseline justify-between gap-8 py-6 md:py-8"
                       >
-                        <span className="font-display text-[clamp(2.2rem,8vw,6rem)] font-light leading-none tracking-tight text-[#efe7da] transition-colors duration-700 group-hover:text-gold">
+                        <span className="font-display text-[clamp(2.4rem,7.5vw,5.5rem)] font-light leading-none tracking-tight text-[#efe7da] transition-colors duration-700 group-hover:text-gold">
                           {item.label}
                         </span>
                         <span className="hidden text-[0.65rem] tracking-[0.5em] text-silver/40 group-hover:text-gold/80 md:inline">
@@ -171,14 +171,7 @@ export default function Navigation() {
               </ul>
             </nav>
 
-            <div className="container-royal relative flex flex-col gap-6 py-10 md:flex-row md:items-end md:justify-between">
-              <div className="flex flex-col gap-2">
-                <span className="eyebrow">Atelier</span>
-                <p className="body-luxe max-w-sm text-silver/70">
-                  A house of architecture, lifestyle and legacy — crafting
-                  places that endure.
-                </p>
-              </div>
+            <div className="container-royal relative flex justify-end py-8">
               <div className="flex gap-6 text-[0.7rem] tracking-[0.32em] text-silver/60">
                 {SOCIAL.map((s) => (
                   <a
